@@ -27,4 +27,16 @@ db.connect((err) => {
     return;
     }
     console.log('Connection Suscessfully!');
-})
+});
+
+//Method GET and POST
+
+app.get('/api/users', (req, res) => {
+    db.query('SELECT * FROM mahasiswa', (err, result) => {
+        if (err) {
+            console.error('Error executing query:0 ' + err.stack);
+            res.status(500).send( 'Error Fetching users' );
+            return;
+        }
+    });
+});
